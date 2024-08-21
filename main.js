@@ -11,7 +11,7 @@ const contenedorFormulario = document.querySelector(".contenedorFormulario")
 const cardPacientes = document.getElementById("cardPacientes")
 
 let alertaBorrando = false
-let flag = false
+let alertaEditando = false
 
 document.addEventListener("DOMContentLoaded", () => {
     const paciente = {
@@ -67,11 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function enviarDatos(objeto){
         submit.textContent = "REGISTRAR PACIENTE"
             if (Object.values(objeto).every(value => value !== "")) {
-                if(flag && !alertaBorrando){
+                if(alertaEditando && !alertaBorrando){
                     const index = listaPacientes.findIndex((elemento) => Number(elemento.id) === Number(objeto.id))
                     listaPacientes.splice(index,1,{...objeto})
                     // listaPacientes.splice(index,0,objAux)
-                    flag = false
+                    alertaEditando = false
                 }else{
                     agregarListaPacientes({ ...objeto }); // Crear una copia del objeto para evitar mutaciones
                 }
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function editarPaciente(e){
         deshabilitarTodosLosBotones()
-        flag = true
+        alertaEditando = true
         submit.textContent = "GUARDAR CAMBIOS"
         const dato = e.target.parentElement.parentElement.children[0]
         const idPaciente = dato.querySelector(".id").textContent.trim()
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sintomas.value = ""
             if(submit.textContent == "GUARDAR CAMBIOS"){
                 submit.textContent = "REGISTRAR PACIENTE"
-
+                alertaEditando = false
             }
     }
 
