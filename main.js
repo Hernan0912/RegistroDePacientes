@@ -180,6 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }else{
                 crearCard()
             }
+
             idNumber.value = ""
             nombre.value = ""
             propietario.value = ""
