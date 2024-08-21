@@ -10,7 +10,7 @@ const formulario = document.querySelector(".formulario")
 const contenedorFormulario = document.querySelector(".contenedorFormulario")
 const cardPacientes = document.getElementById("cardPacientes")
 
-let alertaBorando = false
+let alertaBorrando = false
 let flag = false
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function enviarDatos(objeto){
         submit.textContent = "REGISTRAR PACIENTE"
             if (Object.values(objeto).every(value => value !== "")) {
-                if(flag && !alertaBorando){
+                if(flag && !alertaBorrando){
                     const index = listaPacientes.findIndex((elemento) => Number(elemento.id) === Number(objeto.id))
                     listaPacientes.splice(index,1,{...objeto})
                     // listaPacientes.splice(index,0,objAux)
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         resetearPaciente()
         resetearObjAux()
-        alertaBorando = false
+        alertaBorrando = false
 
         const editando = document.querySelectorAll(".botonCardEditar")
         editando.forEach((item) => {
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function borrarPaciente(e){
 
-            alertaBorando = true 
+            alertaBorrando = true 
             const pacienteBorrado = Number(e.target.id)
             listaPacientes = listaPacientes.filter((elemento) => Number(elemento.id) != pacienteBorrado)
             if(listaPacientes.length === 0){
@@ -179,6 +179,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 `
             }else{
                 crearCard()
+            }
+            idNumber.value = ""
+            nombre.value = ""
+            propietario.value = ""
+            email.value = ""
+            fecha.value = ""
+            sintomas.value = ""
+            if(submit.textContent == "GUARDAR CAMBIOS"){
+                submit.textContent = "REGISTRAR PACIENTE"
             }
     }
 
