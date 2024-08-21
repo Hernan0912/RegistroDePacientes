@@ -180,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }else{
                 crearCard()
             }
-
             idNumber.value = ""
             nombre.value = ""
             propietario.value = ""
@@ -189,6 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sintomas.value = ""
             if(submit.textContent == "GUARDAR CAMBIOS"){
                 submit.textContent = "REGISTRAR PACIENTE"
+
             }
     }
 
