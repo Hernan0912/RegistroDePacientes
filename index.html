@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="contenedor">
+
+        <div class="contenedorEncabezado">
+
+            <div class="encabezado">
+                <h2>SEGUIMIENTO PACIENTES</h2>
+                <p>Añade pacientes y <span class="colorSpan">Administralos</span></p>
+            </div>
+
+            <div class="encabezado">
+                <h2>LISTADO DE PACIENTES</h2>
+                <P>Administra tus <span class="colorSpan">Pacientes y citas</span></P>
+            </div>
+
+        </div>
+
+        <div class="contenedorPrincipal">
+
+            <div class="contenedorFormulario">
+                <form class="formulario">
+                    <ul>
+                        <li>
+                            <label for="id" hidden>ID:</label>
+                            <input type="text" name="id" id="id" placeholder=" Nombre y apellido" hidden>
+                        </li>
+                        <li>
+                            <label for="nombrePaciente">NOMBRE PACIENTE:</label>
+                            <input type="text" name="nombre" id="nombrePaciente" placeholder=" Nombre y apellido">
+                        </li>
+                        <li>
+                            <label for="nombrePropietario">NOMBRE PROPIETARIO:</label>
+                            <input type="text" name="propietario" id="nombrePropietario" placeholder=" Nombre propietario">
+                        </li>
+                        <li>
+                            <label for="email">EMAIL DE CONTACTO:</label>
+                            <input type="text" name="email" id="email" placeholder=" algo@algo.com">
+                        </li>
+                        <li>
+                            <label for="fecha">FECHA DE ALTA:</label>
+                            <input type="date" name="fecha" id="fecha">
+                        </li>
+                        <li>
+                            <label for="sintomas">SINTOMAS:</label>
+                            <textarea name="sintomas" id="sintomas" placeholder=" Fiebre, vomitos, mareos..."></textarea>
+                        </li>
+                        <li>
+                            <button type="submit" id="submit">REGISTRAR PACIENTE</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        
+            <div class="contenedorcards">
+                <div id="cardPacientes"></div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
